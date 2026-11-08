@@ -1,0 +1,8 @@
+#this file and commit will provide the tasks that ansible will run against the hosts or inventory file given
+#in either the apply.yml file or using the -i option for the ansible-playbook command
+---
+
+- name: Stop a service on a linux (RHEL) system
+  ansible.builtin.systemd:
+    name: sssd
+    state: stopped
