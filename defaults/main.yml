@@ -1,0 +1,3 @@
+#the defaults/main.yml allows you to control the when: statements in your tasks/main.yml with boolean true/false statements
+stop_services: true
+start_services: false

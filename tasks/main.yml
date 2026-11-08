@@ -6,6 +6,7 @@
   ansible.builtin.systemd:
     name: sssd
     state: stopped
+  when: stop_services
 
 - name: Stop more than one service
   systemd: #you can short-hand ansible.builtin plugins with just the last part of the command here
@@ -15,3 +16,15 @@
     - mysql
     - firewalld
   ignore_errors: yes #ansible plays will stop at any major error. Generally that's good, but sometimes you can move on; especially if a service isn't enabled or installed and that's ok by you
+  when: stop_services
+
+- name: Start the services
+  systemd:
+    name: "{{ item }}"
+    state: started
+  loop:
+    - sssd
+    - mysql
+    - firewalld
+  ignore_errors: yes
+  when: start_services
