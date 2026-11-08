@@ -6,3 +6,11 @@
   ansible.builtin.systemd:
     name: sssd
     state: stopped
+
+- name: Stop more than one service
+  systemd: #you can short-hand ansible.builtin plugins with just the last part of the command here
+    name: "{{ item }}"
+    state: stopped
+  loop:
+    - mysql
+    - firewalld
