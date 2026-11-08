@@ -1,0 +1,8 @@
+# this file is the playbook for anisble automation. I use this tool in my career and will use this as an example of git proficiency and commits. 
+
+---
+- hosts: localhost
+  become: yes
+  become_user: root
+
+  
