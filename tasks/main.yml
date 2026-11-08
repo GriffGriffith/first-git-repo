@@ -14,3 +14,4 @@
   loop:
     - mysql
     - firewalld
+  ignore_errors: yes #ansible plays will stop at any major error. Generally that's good, but sometimes you can move on; especially if a service isn't enabled or installed and that's ok by you
